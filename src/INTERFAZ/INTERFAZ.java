@@ -17,7 +17,7 @@ public class INTERFAZ extends JFrame {
     JLabel Jugad;
 
 
-    //Mikel come cipotes//
+
 
     Map mapa;
     Jugador jugador;
