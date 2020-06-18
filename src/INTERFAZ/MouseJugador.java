@@ -46,9 +46,9 @@ public class MouseJugador  implements MouseListener {
 
                 break;
             case "tropa":
-                if (interfaz.label[click.x][click.y].getBackground().equals(new Color(50,50,255))){
+                if (tropa.numMov > 0 && interfaz.label[click.x][click.y].getBackground().equals(new Color(50,50,255))){
                     tropa.posicion = click;
-                    tropa.movimientos -= 1;
+                    tropa.numMov -= 1;
                 }
                 interfaz.ResetMap(map, tropa);
                 INTERFAZ.seleccionado = "nothing";

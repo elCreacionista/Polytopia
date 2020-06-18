@@ -9,7 +9,8 @@ public class Tropa {
 
 
     public Point posicion;
-    public int movimientos;
+    public TipoTropa tipo = new TipoTropa("caballo xD");
+    public int numMov = tipo.numMov;
 
     public void setPosicion(Point posicion) {
         this.posicion = posicion;

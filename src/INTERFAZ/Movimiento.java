@@ -26,7 +26,7 @@ public class Movimiento {
                     if (pathfinding.BuscarDistancia(new Point(i, j)) < 7 && pathfinding.BuscarCaminoTest(tropa.posicion, new Point(i, j))) {
                         PathFinding.found = false;
                         if (i != click.x || j != click.y)
-                            if (mapa.mapa[i][j] instanceof Llanura) {
+                            if (tropa.numMov > 0 && mapa.mapa[i][j] instanceof Llanura) {
 
                                 interfaz.CambiarColor(new Point(i, j), new Color(50, 50, 255));
                             }
