@@ -1,6 +1,6 @@
 package INTERFAZ;
 
-import JUGADOR.Jugador;
+import TROPA.Tropa;
 import MAPA.Map;
 
 
@@ -20,7 +20,7 @@ public class INTERFAZ extends JFrame {
 
 
     Map mapa;
-    Jugador jugador;
+    Tropa tropa;
     Point initialpos;
     Point local = new Point(300,300);
 
@@ -31,14 +31,14 @@ public class INTERFAZ extends JFrame {
 
 
 
-    public INTERFAZ(Map c, Jugador j) {
+    public INTERFAZ(Map c, Tropa j) {
 
 
 
 
 
         this.mapa = c;
-        this.jugador = j;
+        this.tropa = j;
         new JFrame("mapa");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,600);
@@ -62,10 +62,9 @@ public class INTERFAZ extends JFrame {
         setVisible(true);
         Panel_mapa.addMouseMotionListener(new Mouse(this));
 
-
     }
 
-    public void ponerJL(Map c, Jugador ju) {
+    public void ponerJL(Map c, Tropa ju) {
 
         for (int i = 0; i < c.mapa.length; i++) {
             for (int j = 0; j < c.mapa[0].length; j++) {
@@ -78,7 +77,7 @@ public class INTERFAZ extends JFrame {
         }
     }
 
-    public boolean losJug(int i, int j, Jugador c) {
+    public boolean losJug(int i, int j, Tropa c) {
 
         if (c.posicion.x == i && c.posicion.y == j) {
 
@@ -88,7 +87,7 @@ public class INTERFAZ extends JFrame {
         return false;
     }
 
-    public void CuadJL(Map m, Jugador j) {
+    public void CuadJL(Map m, Tropa j) {
 
         int x = j.posicion.x - 1;
         int y = j.posicion.y - 1;
@@ -112,7 +111,7 @@ public class INTERFAZ extends JFrame {
     }
 
 
-    public void ResetMap(Map c, Jugador ju){
+    public void ResetMap(Map c, Tropa ju){
         for (int i = 0; i < c.mapa.length - 1; i++) {
             for (int j = 0; j < c.mapa[0].length - 1; j++) {
                 this.label[i][j].setText("");
@@ -132,7 +131,7 @@ public class INTERFAZ extends JFrame {
         this.label[posicion.x][posicion.y].setText(("" + numero));
     }
 
-    public void losJL(Map c, Jugador ju) {
+    public void losJL(Map c, Tropa ju) {
 
 
         for (int i = 0; i < c.mapa.length - 1; i++) {

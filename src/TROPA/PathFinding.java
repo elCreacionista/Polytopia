@@ -1,9 +1,8 @@
-package JUGADOR;
+package TROPA;
 
 import INTERFAZ.INTERFAZ;
 import MAPA.Llanura;
 import MAPA.Map;
-import MAPA.tipoCasilla;
 
 import java.awt.*;
 
@@ -11,13 +10,13 @@ public class PathFinding {
 
 
     public static boolean found = false;
-    Jugador jugador;
+    Tropa tropa;
     Map mapa;
     INTERFAZ interfaz;
 
 
-    public PathFinding(Jugador jugador, Map mapa, INTERFAZ interfaz){
-        this.jugador = jugador;
+    public PathFinding(Tropa tropa, Map mapa, INTERFAZ interfaz){
+        this.tropa = tropa;
         this.mapa = mapa;
         this.interfaz = interfaz;
     }
@@ -68,18 +67,18 @@ public class PathFinding {
 
     public int BuscarDistancia(Point destino){
         int distancia = 0;
-        if (destino.x == jugador.posicion.x && destino.y == jugador.posicion.y)
+        if (destino.x == tropa.posicion.x && destino.y == tropa.posicion.y)
             return 0;
 
-        if (destino.x < jugador.posicion.x )
-            distancia += jugador.posicion.x - destino.x;
+        if (destino.x < tropa.posicion.x )
+            distancia += tropa.posicion.x - destino.x;
         else
-            distancia += destino.x - jugador.posicion.x;
+            distancia += destino.x - tropa.posicion.x;
 
-        if (destino.y < jugador.posicion.y )
-            distancia += jugador.posicion.y - destino.y;
+        if (destino.y < tropa.posicion.y )
+            distancia += tropa.posicion.y - destino.y;
         else
-            distancia += destino.y - jugador.posicion.y;
+            distancia += destino.y - tropa.posicion.y;
 
         return distancia;
     }

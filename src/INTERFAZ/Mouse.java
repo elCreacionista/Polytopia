@@ -14,7 +14,6 @@ public class Mouse implements MouseMotionListener {
     Point now;
     @Override
     public void mouseDragged(MouseEvent e) {
-
             Point naw = new Point(e.getX(), e.getY());
 
 

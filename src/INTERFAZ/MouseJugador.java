@@ -1,7 +1,7 @@
 package INTERFAZ;
 
-import JUGADOR.Jugador;
-import JUGADOR.PathFinding;
+import TROPA.Tropa;
+import TROPA.PathFinding;
 import MAPA.Map;
 
 import java.awt.*;
@@ -11,12 +11,12 @@ import java.awt.event.MouseListener;
 public class MouseJugador  implements MouseListener {
     Movimiento movimiento;
     INTERFAZ interfaz;
-    Jugador jugador;
+    Tropa tropa;
     Map map;
-    MouseJugador(INTERFAZ interfaz, Jugador jugador, Map map){
+    MouseJugador(INTERFAZ interfaz, Tropa tropa, Map map){
 
         this.interfaz = interfaz;
-        this.jugador = jugador;
+        this.tropa = tropa;
         this.map = map;
     }
 
@@ -29,27 +29,28 @@ public class MouseJugador  implements MouseListener {
         click = new Point((int)x,(int)y);
         System.out.println(x);
         System.out.println(y);
-        PathFinding path = new PathFinding(jugador,map, interfaz);
+        PathFinding path = new PathFinding(tropa,map, interfaz);
         //interfaz.PonerNumero(path.BuscarDistancia(click),click);
         switch (INTERFAZ.seleccionado) {
             case "nothing":
-                movimiento = new Movimiento(interfaz, map, jugador);
+                movimiento = new Movimiento(interfaz, map, tropa);
 
-                if (click.equals(jugador.posicion)) {
+                if (click.equals(tropa.posicion)) {
                     movimiento.MovimientoTropaTest01(interfaz, map, path, click);
                     INTERFAZ.seleccionado = "tropa";
                 }
                 else{
-                    System.out.println(path.BuscarCaminoTest(jugador.posicion,click));
+                    System.out.println(path.BuscarCaminoTest(tropa.posicion,click));
                     PathFinding.found = false;
                 }
 
                 break;
             case "tropa":
                 if (interfaz.label[click.x][click.y].getBackground().equals(new Color(50,50,255))){
-                    jugador.posicion = click;
+                    tropa.posicion = click;
+                    tropa.movimientos -= 1;
                 }
-                interfaz.ResetMap(map,jugador);
+                interfaz.ResetMap(map, tropa);
                 INTERFAZ.seleccionado = "nothing";
                 break;
 

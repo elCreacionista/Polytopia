@@ -1,7 +1,7 @@
 package INTERFAZ;
 
-import JUGADOR.Jugador;
-import JUGADOR.PathFinding;
+import TROPA.Tropa;
+import TROPA.PathFinding;
 import MAPA.Llanura;
 import MAPA.Map;
 
@@ -9,12 +9,12 @@ import java.awt.*;
 
 public class Movimiento {
     Map mapa;
-    Jugador jugador;
+    Tropa tropa;
     INTERFAZ interfaz;
-    Movimiento(INTERFAZ interfaz, Map mapa, Jugador jugador){
+    Movimiento(INTERFAZ interfaz, Map mapa, Tropa tropa){
         this.interfaz = interfaz;
         this.mapa = mapa;
-        this.jugador = jugador;
+        this.tropa = tropa;
     }
     public void MovimientoTropaTest01(INTERFAZ interfaz, Map mapa, PathFinding pathfinding, Point click) {
 
@@ -23,7 +23,7 @@ public class Movimiento {
 
 
                 if (i >= 0 && i < mapa.mapa.length - 1 && j >= 0 && j < mapa.mapa[0].length - 1)
-                    if (pathfinding.BuscarDistancia(new Point(i, j)) < 7 && pathfinding.BuscarCaminoTest(jugador.posicion, new Point(i, j))) {
+                    if (pathfinding.BuscarDistancia(new Point(i, j)) < 7 && pathfinding.BuscarCaminoTest(tropa.posicion, new Point(i, j))) {
                         PathFinding.found = false;
                         if (i != click.x || j != click.y)
                             if (mapa.mapa[i][j] instanceof Llanura) {
